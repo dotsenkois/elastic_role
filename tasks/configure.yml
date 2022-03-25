@@ -6,9 +6,9 @@
     mode: 0644
     dest: /etc/elasticsearch/elasticsearch.yml
   notify: restart Elasticsearch
-- name: add elasticsearch user
-  become: true
-  command: /usr/share/elasticsearch/bin/elasticsearch-users useradd dotsenkois -p megapass -r superuser
+# - name: add elasticsearch user
+#   become: true
+#   command: /usr/share/elasticsearch/bin/elasticsearch-users useradd dotsenkois -p megapass -r superuser
 # - name: create-enrollment-token
 #   become: true
 #   command: /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token --scope kibana > /tmp/enrollment-token
