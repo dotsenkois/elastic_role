@@ -3,3 +3,6 @@
   fail:
     msg: "System {{ ansible_distribution }} is not support by this role"
   when: ansible_distribution not in supported_systems
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
