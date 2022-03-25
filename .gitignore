@@ -1,0 +1,6 @@
+.DS_Store
+files/*
+meta/.galaxy_install_info
+.tox
+molecule/default/files/elasticsearch-7.14.0-x86_64.rpm
+molecule/default/files/elasticsearch-7.14.0-amd64.deb
