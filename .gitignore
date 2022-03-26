@@ -4,3 +4,6 @@ meta/.galaxy_install_info
 .tox
 molecule/default/files/elasticsearch-7.14.0-x86_64.rpm
 molecule/default/files/elasticsearch-7.14.0-amd64.deb
+Python-3.9.12.tgz
+molecule/1/files/elasticsearch-8.1.1-amd64.deb
+molecule/1/files/elasticsearch-8.1.1-x86_64.rpm

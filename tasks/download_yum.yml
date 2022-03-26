@@ -1,4 +1,9 @@
 ---
+- name: "Check that elastick's rpm is exists"
+  stat:
+    path: "files/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+  register: stat_result
+  delegate_to: localhost
 - name: "Download Elasticsearch's rpm"
   get_url:
     url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
@@ -7,7 +12,9 @@
   register: download_elastic
   delegate_to: localhost
   until: download_elastic is succeeded
-  when: elastic_install_type == 'remote'
+  when:
+  - not stat_result.stat.exists
+  - elastic_install_type == 'remote'
 - name: Copy Elasticsearch to managed node
   copy:
     src: "files/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
