@@ -1,13 +1,13 @@
 ---
 - name: "Check that elastick's deb is exists"
   stat:
-    path: "files/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+    path: "{{ pkg_tmp_src }}/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
   register: stat_result
   delegate_to: localhost
 - name: "Download Elasticsearch's deb"
   get_url:
     url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
-    dest: "files/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+    dest: "{{ pkg_tmp_src }}/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
     validate_certs: false
   delegate_to: localhost
   register: download_elastic
@@ -17,6 +17,6 @@
   - elastic_install_type == 'remote'
 - name: Copy Elasticsearch to manage host
   copy:
-    src: "files/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+    src: "{{ pkg_tmp_src }}/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
     mode: 0755
     dest: "/tmp/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
