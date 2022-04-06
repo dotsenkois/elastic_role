@@ -1,9 +1,10 @@
 galaxy_info:
-  author: Alexey Metlyakov
-  description: your role description
-  company: netology
-  namespace: space
-  role_name: elastic
+  author: dotsenkois
+  description: elasticsearch install
+  company: dotsenkois
+  role_name: elastic_role
+  # namespace: elk_stack
+
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
