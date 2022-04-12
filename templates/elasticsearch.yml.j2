@@ -2,7 +2,11 @@
 # path.logs: /var/log/elasticsearch
 # network.host: 0.0.0.0
 # discovery.type: single-node
+# {% if ansible_facts['default_ipv4'][ "address"] != None -%}
 # # discovery.seed_hosts: ["{{ ansible_facts['default_ipv4'][ "address"] }}"]
+# {% else -%}
+# # discovery.seed_hosts: ["{{ ansible_facts['env'][ "HOSTNAME"] }}"]
+# {% endif %}
 # node.name: elk
 # cluster.initial_master_nodes: 
 #    - elk
